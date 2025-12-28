@@ -1,0 +1,91 @@
+/* Обнуляем отступы и настраиваем шрифт */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    /* Красивый градиент на фоне (напоминает небо) */
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.weather-app {
+    /* Эффект матового стекла */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff9f43;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #f39c12;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#result {
+    margin-top: 25px;
+    min-height: 100px;
+}
+
+/* Стили для данных внутри #result, которые создает JS */
+#result h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+#result p {
+    margin: 5px 0;
+}
+
+.temp-display {
+    font-size: 3.5rem !important;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.status-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: 0.9;
+}
