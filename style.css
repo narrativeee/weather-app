@@ -1,4 +1,3 @@
-/* Обнуляем отступы и настраиваем шрифт */
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +6,7 @@
 }
 
 body {
-    /* Красивый градиент на фоне (напоминает небо) */
-    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    background: linear-gradient(135deg, #79b7df, #9b59b6);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -17,7 +15,6 @@ body {
 }
 
 .weather-app {
-    /* Эффект матового стекла */
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
@@ -54,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: #f39c12;
+    background-color: #e99308;
     transform: translateY(-2px);
 }
 
@@ -67,7 +64,6 @@ button:active {
     min-height: 100px;
 }
 
-/* Стили для данных внутри #result, которые создает JS */
 #result h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
