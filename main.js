@@ -45,6 +45,7 @@ async function getWeather(lat, lon, name) {
         const data = await response.json()
         const temp = data.current_weather.temperature
         const weatherCode = data.current_weather.weathercode
+        const windSpeed = data.current_weather.windspeed
 
         let weatherText
 
@@ -83,6 +84,7 @@ async function getWeather(lat, lon, name) {
         resultDiv.innerHTML = `
         <h3>${name}</h3>
         <p style="font-size: 24px;">${temp}°C</p>
+        <p>Скорость ветра: ${windSpeed} км/ч</p>
         <p>${weatherText}</p>
         `
     } catch (error) {
