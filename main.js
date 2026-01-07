@@ -45,7 +45,10 @@ async function getWeather(lat, lon, name) {
         const data = await response.json()
         const temp = data.current_weather.temperature
         const weatherCode = data.current_weather.weathercode
-        const windSpeed = data.current_weather.windspeed
+        const windSpeedKh = data.current_weather.windspeed
+        const windSpeedMs = Math.round(data.current_weather.windspeed / 3.6
+ * 10) / 10
+        console.log(windSpeedMs)
 
         let weatherText
 
@@ -84,7 +87,7 @@ async function getWeather(lat, lon, name) {
         resultDiv.innerHTML = `
         <h3>${name}</h3>
         <p style="font-size: 24px;">${temp}°C</p>
-        <p>Скорость ветра: ${windSpeed} км/ч</p>
+        <p>Скорость ветра: ${windSpeedKh} км/ч (≈ ${windSpeedMs} м/с)</p>
         <p>${weatherText}</p>
         `
     } catch (error) {
