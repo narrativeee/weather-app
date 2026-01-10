@@ -2,7 +2,8 @@
 
 Простое веб-приложение для проверки погоды, написанное на JavaScript с использованием внешнего API
 
-[Живое демо](https://narrativeee.github.io/weather-app/)
+[Живое демо](narrativeee.github.io/weather-app)  
+[Или демо на Netlify](weather-app-narrativiii.netlify.app)
 
 ### Особенности:
 * Получение данных о погоде в реальном времени
