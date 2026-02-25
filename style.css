@@ -2,18 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body {
-    background-color: #000000; /* Глубокий черный */
-    color: #ffffff; /* Белый текст */
+    background-color: #000000;
+    color: #ffffff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 15vh;
-    overflow-x: hidden;
 }
 
 .weather-app {
@@ -28,7 +27,7 @@ input {
     width: 100%;
     padding: 20px 0;
     border: none;
-    border-bottom: 1px solid #333; /* Едва заметная линия */
+    border-bottom: 1px solid #333;
     background: transparent;
     outline: none;
     font-size: 2.5rem;
@@ -41,15 +40,15 @@ input {
 }
 
 input:focus {
-    border-bottom-color: #ffffff; /* Белая линия при печати */
+    border-bottom-color: #ffffff;
 }
 
 input::placeholder {
-    color: #333; /* Тусклый плейсхолдер */
+    color: #222;
 }
 
-/* Кнопка */
-button {
+/* Главная кнопка */
+button#searchBtn {
     background: transparent;
     color: #fff;
     border: 1px solid #fff;
@@ -62,12 +61,55 @@ button {
     margin-bottom: 20px;
 }
 
-button:hover {
+button#searchBtn:hover {
     background: #fff;
     color: #000;
 }
 
-/* Блок результата */
+/* Стили истории */
+.recent-requests {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.recent-city-btn {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #222;
+    color: #555;
+    font-size: 0.7rem;
+    padding: 2px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.recent-city-btn:hover {
+    color: #aaa;
+    border-bottom-color: #444;
+}
+
+/* Кнопка удаления истории (крестик) */
+.clear-history-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: color 0.3s ease;
+    display: none; /* Скрыта по умолчанию */
+}
+
+.clear-history-btn:hover {
+    color: #ff4444;
+}
+
+/* Результат */
 #result {
     margin-top: 60px;
     animation: fadeIn 1s ease forwards;
@@ -78,12 +120,12 @@ button:hover {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: #666; /* Город не должен кричать */
+    color: #666;
     margin-bottom: 15px;
 }
 
 .temp-display {
-    font-size: 9rem; /* Очень крупная температура */
+    font-size: 9rem;
     font-weight: 100;
     line-height: 1;
     margin-bottom: 15px;
@@ -92,47 +134,19 @@ button:hover {
 .weather-text {
     font-size: 1.5rem;
     font-weight: 300;
-    letter-spacing: 1px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     color: #eee;
 }
 
 .details {
-    font-size: 0.85rem; /* Чуть увеличили */
-    color: #888; /* Сделали намного светлее (был #444) */
+    font-size: 0.85rem;
+    color: #888; /* Сделали ветер ярче */
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-top: 10px;
-    font-weight: 400; /* Добавили веса */
+    font-weight: 400;
 }
 
-/* Анимация появления */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
-}
-
-.recent-requests {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.recent-city-btn {
-    background: none;
-    border: none;
-    border-bottom: 1px solid #222; /* Еще более тусклая линия изначально */
-    color: #555; /* Сделали чуть темнее в покое */
-    font-size: 0.7rem;
-    padding: 2px 0;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-}
-
-.recent-city-btn:hover {
-    color: #aaa; /* При наведении не чисто белый, а мягкий серый */
-    border-bottom-color: #444; /* Линия тоже не горит ярким */
 }

@@ -2,8 +2,9 @@ const input = document.querySelector('#cityName');
 const button = document.querySelector('#searchBtn');
 const resultDiv = document.querySelector('#result');
 const recentDiv = document.querySelector('#recentRequests');
+const clearHistoryBtn = document.querySelector('#clearHistoryBtn');
 
-// 1. Инициализация: загружаем историю при старте
+// Инициализация истории
 let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
 renderRecentCities();
 
@@ -20,26 +21,35 @@ input.addEventListener('keydown', (event) => {
     }
 });
 
-// Функция для сохранения города в историю
+// Кнопка очистки всей истории
+clearHistoryBtn.addEventListener('click', () => {
+    recentCities = [];
+    localStorage.removeItem('recentCities');
+    renderRecentCities();
+});
+
 function saveToHistory(name) {
-    // Убираем дубликаты: если город уже есть, удаляем его из старой позиции
+    // Удаляем дубликат, если он был
     recentCities = recentCities.filter(city => city.toLowerCase() !== name.toLowerCase());
-    
     // Добавляем в начало
     recentCities.unshift(name);
-    
-    // Оставляем только 3 последних
-    if (recentCities.length > 3) {
-        recentCities.pop();
-    }
+    // Ограничиваем до 3 городов
+    if (recentCities.length > 3) recentCities.pop();
     
     localStorage.setItem('recentCities', JSON.stringify(recentCities));
     renderRecentCities();
 }
 
-// Функция для отрисовки кнопок истории
 function renderRecentCities() {
-    recentDiv.innerHTML = ''; // Очищаем панель
+    recentDiv.innerHTML = '';
+    
+    if (recentCities.length === 0) {
+        clearHistoryBtn.style.display = 'none';
+        return;
+    } else {
+        clearHistoryBtn.style.display = 'inline-block';
+    }
+
     recentCities.forEach(city => {
         const btn = document.createElement('button');
         btn.classList.add('recent-city-btn');
@@ -66,10 +76,7 @@ async function getCityCoordinates(cityName) {
         }
 
         const {latitude, longitude, name} = data.results[0];
-        
-        // ВАЖНО: сохраняем в историю только если поиск успешен
-        saveToHistory(name); 
-        
+        saveToHistory(name);
         getWeather(latitude, longitude, name);
     } catch (error) {
         resultDiv.innerHTML = '<p class="details">ОШИБКА СЕРВИСА</p>';
@@ -78,6 +85,7 @@ async function getCityCoordinates(cityName) {
 
 async function getWeather(lat, lon, name) {
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -106,7 +114,7 @@ async function getWeather(lat, lon, name) {
             </div>
         `;
     } catch (error) {
-        resultDiv.innerHTML = '<p class="details">ОШИБКА ПОЛУЧЕНИЯ ДАННЫХ</p>';
+        resultDiv.innerHTML = '<p class="details">ОШИБКА ДАННЫХ</p>';
     } finally {
         input.value = '';
     }
