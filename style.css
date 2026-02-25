@@ -98,10 +98,12 @@ button:hover {
 }
 
 .details {
-    font-size: 0.75rem;
-    color: #444; /* Мелкие детали почти сливаются с фоном */
+    font-size: 0.85rem; /* Чуть увеличили */
+    color: #888; /* Сделали намного светлее (был #444) */
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-top: 10px;
+    font-weight: 400; /* Добавили веса */
 }
 
 /* Анимация появления */
@@ -120,8 +122,8 @@ button:hover {
 .recent-city-btn {
     background: none;
     border: none;
-    border-bottom: 1px solid #444; /* Тонкая линия снизу */
-    color: #888;
+    border-bottom: 1px solid #222; /* Еще более тусклая линия изначально */
+    color: #555; /* Сделали чуть темнее в покое */
     font-size: 0.7rem;
     padding: 2px 0;
     cursor: pointer;
@@ -131,6 +133,6 @@ button:hover {
 }
 
 .recent-city-btn:hover {
-    color: #fff;
-    border-bottom-color: #fff;
+    color: #aaa; /* При наведении не чисто белый, а мягкий серый */
+    border-bottom-color: #444; /* Линия тоже не горит ярким */
 }
