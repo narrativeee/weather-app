@@ -12,7 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 15vh;
+    padding-top: 8vh; /* Сместили вверх */
+    overflow-x: hidden;
 }
 
 .weather-app {
@@ -25,17 +26,17 @@ body {
 /* Строка ввода */
 input {
     width: 100%;
-    padding: 20px 0;
+    padding: 15px 0; /* Чуть уменьшили внутренний отступ */
     border: none;
     border-bottom: 1px solid #333;
     background: transparent;
     outline: none;
-    font-size: 2.5rem;
+    font-size: 2.2rem; /* Слегка уменьшили шрифт для компактности */
     font-weight: 200;
     text-align: center;
     color: #fff;
     transition: border-color 0.4s ease;
-    margin-bottom: 30px;
+    margin-bottom: 20px; /* Уменьшили отступ снизу */
     text-transform: uppercase;
 }
 
@@ -52,13 +53,13 @@ button#searchBtn {
     background: transparent;
     color: #fff;
     border: 1px solid #fff;
-    padding: 12px 40px;
+    padding: 10px 35px;
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Уменьшили отступ */
 }
 
 button#searchBtn:hover {
@@ -66,9 +67,9 @@ button#searchBtn:hover {
     color: #000;
 }
 
-/* Стили истории */
+/* История поиска */
 .recent-requests {
-    margin-top: 20px;
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -78,75 +79,78 @@ button#searchBtn:hover {
 .recent-city-btn {
     background: none;
     border: none;
-    border-bottom: 1px solid #222;
-    color: #555;
-    font-size: 0.7rem;
-    padding: 2px 0;
+    border-bottom: 1px solid #333;
+    color: #777;
+    font-size: 0.9rem;
+    padding: 5px 0;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     transition: all 0.3s ease;
 }
 
 .recent-city-btn:hover {
-    color: #aaa;
-    border-bottom-color: #444;
+    color: #fff;
+    border-bottom-color: #fff;
 }
 
-/* Кнопка удаления истории (крестик) */
+/* Крестик удаления */
 .clear-history-btn {
     background: none;
     border: none;
-    color: #333;
-    font-size: 1.5rem;
+    color: #444;
+    font-size: 2rem;
+    line-height: 1;
     cursor: pointer;
-    margin-top: 15px;
-    transition: color 0.3s ease;
-    display: none; /* Скрыта по умолчанию */
+    margin-top: 5px;
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+    display: none;
 }
 
 .clear-history-btn:hover {
     color: #ff4444;
+    transform: scale(1.1);
 }
 
 /* Результат */
 #result {
-    margin-top: 60px;
+    margin-top: 40px; /* Уменьшили отступ сверху */
     animation: fadeIn 1s ease forwards;
 }
 
 #result h3 {
-    font-size: 1rem;
+    font-size: 0.9rem; /* Чуть меньше */
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 5px;
     color: #666;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .temp-display {
-    font-size: 9rem;
+    font-size: 7.5rem; /* Уменьшили с 9rem для компактности */
     font-weight: 100;
     line-height: 1;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .weather-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 300;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     color: #eee;
 }
 
 .details {
-    font-size: 0.85rem;
-    color: #888; /* Сделали ветер ярче */
+    font-size: 0.8rem;
+    color: #888;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 400;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }

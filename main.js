@@ -4,7 +4,7 @@ const resultDiv = document.querySelector('#result');
 const recentDiv = document.querySelector('#recentRequests');
 const clearHistoryBtn = document.querySelector('#clearHistoryBtn');
 
-// Инициализация истории
+// Загрузка истории
 let recentCities = JSON.parse(localStorage.getItem('recentCities')) || [];
 renderRecentCities();
 
@@ -21,7 +21,6 @@ input.addEventListener('keydown', (event) => {
     }
 });
 
-// Кнопка очистки всей истории
 clearHistoryBtn.addEventListener('click', () => {
     recentCities = [];
     localStorage.removeItem('recentCities');
@@ -29,20 +28,15 @@ clearHistoryBtn.addEventListener('click', () => {
 });
 
 function saveToHistory(name) {
-    // Удаляем дубликат, если он был
     recentCities = recentCities.filter(city => city.toLowerCase() !== name.toLowerCase());
-    // Добавляем в начало
     recentCities.unshift(name);
-    // Ограничиваем до 3 городов
     if (recentCities.length > 3) recentCities.pop();
-    
     localStorage.setItem('recentCities', JSON.stringify(recentCities));
     renderRecentCities();
 }
 
 function renderRecentCities() {
     recentDiv.innerHTML = '';
-    
     if (recentCities.length === 0) {
         clearHistoryBtn.style.display = 'none';
         return;
