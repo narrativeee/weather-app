@@ -109,3 +109,28 @@ button:hover {
     from { opacity: 0; transform: translateY(15px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+.recent-requests {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.recent-city-btn {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #444; /* Тонкая линия снизу */
+    color: #888;
+    font-size: 0.7rem;
+    padding: 2px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.recent-city-btn:hover {
+    color: #fff;
+    border-bottom-color: #fff;
+}
